@@ -13,8 +13,8 @@ with DAG(
     dag_id="simple_dag",
     default_args={
         "owner": "user",
-        "depends_on_past": False,
-        "email": "jaeyoon.han@lgcns.com",
+        "depends_on_past": False, 
+        "email": "choiyh365@gmail.com",
         "email_on_failure": False,
         "email_on_retry": False,
         "retries": 1,
