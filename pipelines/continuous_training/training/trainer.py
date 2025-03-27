@@ -138,7 +138,9 @@ class Trainer:
                 mlflow.log_params(
                     {key: cls.get_params()[key] for key in params}
                 )
-                mlflow.log_param("iterations", cls.best_iteration_)
+                mlflow.log_params(
+                    {"iterations": cls.best_iteration_}
+                )
                 mlflow.log_metrics(
                     self._parse_score_dict(
                         cls.get_best_score().get("validation")
@@ -179,7 +181,7 @@ class Trainer:
             max_results=1,
         )
 
-        if len(best_run_df) == 0:
+        if best_run_df.empty:
             raise AttributeError(
                 f"Found no runs for experiment '{self._experiment_name}'"
             )
